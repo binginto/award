@@ -23,7 +23,7 @@
                 $routeProvider
                 .when('/',{
                 	controller:'shareController',
-                	templateUrl:'view/cash/best.html'
+                	templateUrl:'view/treeView.html'
                 })
                 .when('/cash/first',{
 				   controller: 'shareController',
@@ -341,7 +341,7 @@
 		        //请求方式为get  
 		        type:"GET",  
 		        //json文件位置  
-		        url:"./data/workers.json",  
+		        url:"./data/worker.json",  
 		        //返回数据格式为json  
 		        dataType: "json",  
 		        async: false ,
@@ -358,7 +358,6 @@
 		    })    
 		     return workerdata ;
 		}
-
 
 
 
