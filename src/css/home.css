@@ -6,13 +6,13 @@
    float: left;
 }
 
-.left ul li{
-	/*background-color:#46A3FF;*/
-	text-align: center;
-	margin: 0 auto ;
+li{
+	width:80% !important;
+	text-align: center !important;
+	margin: 5Vmin auto 5vmin auto !important;
 	/*border:solid #ccc 2px;*/
-  font-size: 2em;
-  /*display: block; */
+    font-size: 1.2em !important;
+    display: block;  
 }
 
 

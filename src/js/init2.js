@@ -1,5 +1,4 @@
-$(document).ready(function (){
-
-  $(".menu ul li").menu();
-
-}); 
+    function sendData2(id){
+          	console.log('hehe');
+          	console.log(id);
+          }

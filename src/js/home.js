@@ -18,12 +18,12 @@ var timer;
 var deletedata;
 var comnumber;
 
-angular.module('wechatApp', ['ngRoute'])
-	.config(function($routeProvider) {
+const app = angular.module('wechatApp', ['ngRoute']);
+	app.config(function($routeProvider) {
 		$routeProvider
 			.when('/', {
 				controller: 'shareController',
-				templateUrl: 'view/treeView.html'
+				templateUrl: 'tpl/treeView.html'
 			})
 			.when('/cash/first', {
 				controller: 'shareController',
@@ -35,62 +35,38 @@ angular.module('wechatApp', ['ngRoute'])
 				templateUrl: 'view/cash/second.html',
 
 			})
-			.when('/cash/third', {
-				controller: 'shareController',
-				templateUrl: 'view/cash/third.html',
-
-			})
-			.when('/cash/four', {
-				controller: 'shareController',
-				templateUrl: 'view/cash/four.html',
-
-			})
-			.when('/good/best', {
-				controller: 'shareController',
-				templateUrl: 'view/good/best.html',
-
-			})
-			.when('/good/first', {
-				controller: 'shareController',
-				templateUrl: 'view/good/first.html',
-
-			})
-			.when('/good/second', {
-				controller: 'shareController',
-				templateUrl: 'view/good/second.html',
-
-			})
-			.when('/good/third', {
-				controller: 'shareController',
-				templateUrl: 'view/good/third.html',
-
-			})
-			.when('/good/four', {
-				controller: 'shareController',
-				templateUrl: 'view/good/four.html',
-			})
-			.when('/good/five', {
-				controller: 'shareController',
-				templateUrl: 'view/good/five.html',
-			})
-			.when('/add/add', {
-				controller: 'shareController',
-				templateUrl: 'view/add/add.html',
-			})
 			.otherwise({
 				redirectTo: '/'
 			});
 
-	})
-	.directive('customTags', function() {
+	});
+
+	app.directive('customTags', function() {
 		return {
 			restrict: 'ECAM',
 			templateUrl: 'view/directive/leftPanel.html',
 			replace: true
 		}
-	})
+	});
 
-.controller('shareController', function($scope, $route, $rootScope, $location) {
+app.controller('shareController', function($scope, $route, $rootScope, $location) {
+   
+    var awardData = getAward();
+    $scope.sendData = function(id){
+       if(awardData.has(id)){
+       	var setData = awardData.get(id);
+       	$scope.award = setData.award ;
+       	$scope.describe = setData.describe ;
+       	$scope.num  = setData.num;
+       	$scope.startNum = setData.startNum ;
+       	$scope.stopDec = setData.stopDec ;
+       }
+    }
+
+
+
+
+
 
 	/*CASH*/
 	$scope.Start = function(innumber) {

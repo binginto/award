@@ -1,74 +1,96 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>skylight</title>
-	<meta charset="utf-8">
 
- <script type="text/javascript" src="../dep/jquery/jquery-3.2.1.min.js"></script>
- <script type="text/javascript" src="../js/menu_min.js"></script>
-  <script src="./js/init2.js"></script>
-  </head>
-<body>
-<div>
-        <div class="left" id="cash">
-        <h2>天彩开发部晚会抽奖</h2>
-        <div id="content">
 
-    <div class="menu">
+ <div class="left" id="cash">
+ <h2>skylight</h2>
+   <div class="panel-group" id="accordion">
+	
+	<div class="panel panel-default ">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseOne">
+					<button type="button" class="btn btn-default" aria-label="Left Align">
+                 <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                </button>
+					cash
+				</a>
+			</h4>
+		</div>
+		<div id="collapseOne" class="panel-collapse collapse ">
+			<div id = 'cash_1' class="panel-body" ng-click="sendData('cash_1')">
+			first
+			</div>
+			<div id ='cash_2' class="panel-body" ng-click="sendData('cash_2')">
+			sencond
+			</div>
+			<div id ='cash_3' class="panel-body" ng-click="sendData('cash_3')">
+			three
+			</div>
+		</div>
+	</div>
+	
+		<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseGood">
+					<button type="button" class="btn btn-default" aria-label="Left Align">
+                 <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                </button>
+				good
+				</a>
+			</h4>
+		</div>
+		<div id="collapseGood" class="panel-collapse collapse ">
+			<div id = 'good_1' class="panel-body" ng-click="sendData('good_1')">
+			first
+			</div>
+			<div id = 'good_2' class="panel-body" ng-click="sendData('good_2')">
+			sencond
+			</div>
+			<div id = 'good_3' class="panel-body" ng-click="sendData('good_3')">
+			three
+			</div>
+		</div>
+	</div>
+       
+       <div class="panel panel-default ">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseDowork">
+					<button type="button" class="btn btn-default" aria-label="Left Align">
+                 <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                </button>
+					doWork
+				</a>
+			</h4>
+		</div>
+		<div id="collapseDowork" class="panel-collapse collapse ">
+			<div id = 'doWork_1' class="panel-body" ng-click="sendData('doWork_1')">
+			first
+			</div>
+		</div>
+	</div>
 
-        <ul>
+	<div class="panel panel-default ">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseName">
+					<button type="button" class="btn btn-default" aria-label="Left Align">
+                 <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                </button>
+					name
+				</a>
+			</h4>
+		</div>
+		<div id="collapseName" class="panel-collapse collapse ">
+			<div class="panel-body" id = 'name_1' ng-click='sendData(id)'>
+			first
+			</div>
+		</div>
+	</div>
 
-        <li><a class="active" href="#">Cash</a>
-
-            <ul style="display: block;">
-
-                <li><a href="#/cash/best">Subitem 1</a></li>
-
-                <li><a href="#/cash/first">Subitem 2</a></li>
-
-                <li><a href="#/cash/four">Subitem 3</a></li>
-
-            </ul>
-
-        </li>
-
-        <li><a href="#">Good</a>
-
-           <ul >
-
-                <li><a href="#/good/best">Subitem 1</a></li>
-
-                <li><a href="#/good/first">Subitem 2</a></li>
-
-                <li><a href="#/good/first">Subitem 3</a></li>
-
-                <li><a href="#/good/first">Subitem 4</a></li>
-
-            </ul>
-
-        </li>
-
-        <li><a href="#">Item 3</a>
-
-            <ul>
-
-                <li><a href="#/good/first">Subitem 1</a></li>
-
-                <li><a href="#/good/first">Subitem 2</a></li>
-
-            </ul>
-
-        </li>
-
-        <li><a href="#">Item without subitems</a></li>
-
-        <li><a href="#">Item without subitems</a></li>
-
-    </ul>
-
-    </div>
-
+	</div>
 </div>
-
-</body>
-</html>

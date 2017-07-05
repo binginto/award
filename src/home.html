@@ -18,75 +18,14 @@
         <link rel="stylesheet" href="../dep/bootstrap/css/bootstrapbtn.css">
         <script type="text/javascript" src="../dep/jquery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="../dep/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="./js/menu_min.js"></script>
     </head>
     <body >
-        <div>
-        <div class="left" id="cash">
-        <h2>{{meeting}}</h2>
-        <div id="content">
-
-    <div class="menu">
-
-        <ul>
-
-        <li ><a class="active" href="#">Cash</a>
-
-            <ul style="display: block;">
-
-                <li><a href="#/cash/best">Subitem 1</a></li>
-
-                <li><a href="#/cash/first">Subitem 2</a></li>
-
-                <li><a href="#/cash/four">Subitem 3</a></li>
-
-            </ul>
-
-        </li>
-
-        <li><a href="#">Good</a>
-
-           <ul >
-
-                <li><a href="#/good/best">Subitem 1</a></li>
-
-                <li><a href="#/good/first">Subitem 2</a></li>
-
-                <li><a href="#/good/first">Subitem 3</a></li>
-
-                <li><a href="#/good/first">Subitem 4</a></li>
-
-            </ul>
-
-        </li>
-
-        <li><a href="#">Item 3</a>
-
-            <ul>
-
-                <li><a href="#/good/first">Subitem 1</a></li>
-
-                <li><a href="#/good/first">Subitem 2</a></li>
-
-            </ul>
-
-        </li>
-
-        <li><a href="#">Item without subitems</a></li>
-
-        <li><a href="#">Item without subitems</a></li>
-
-    </ul>
-
-    </div>
-
-</div>
-        </div>
+        <div ng-controller="shareController">
+        <custom-tags></custom-tags>
         <div ng-view></div>
         </div>
         
-       
-        <script src="../dep/bootstrap/js/bootstrap-treeview.js"></script>
+        <script type="text/javascript" src='./js/config.js'></script>
         <script src="./js/init2.js"></script>
         <script src="../dep/angularjs/angular.js"></script>
         <script src="../dep/angularjs/angular-route.js"></script>
