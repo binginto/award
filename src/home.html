@@ -1,38 +1,51 @@
 <!DOCTYPE HTML>  
 <html  ng-app='wechatApp'>
-    <head>
-    	<meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>skylight</title>
-        <link rel="stylesheet" type="text/css" href="./css/init.css">
-        <link href="./css/home.css" rel="stylesheet" type="text/css">
-        <link href="./css/button.css" rel="stylesheet" type="text/css">
-        <link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="../dep/bootstrap/css/bootstrap-treeview.css" rel="stylesheet">
-        <link href="./css/style.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="./css/menu-css.css">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"content="width=device-width, initial-scale=1">
+<title>skylight</title>
+<link rel="stylesheet"type="text/css"href="./css/init.css">
+<link href="./css/home.css"rel="stylesheet"type="text/css">
+<link href="./css/button.css"rel="stylesheet"type="text/css">
+<link href="../dep/bootstrap/css/bootstrap.min.css"rel="stylesheet"type="text/css">
+<link href="../dep/bootstrap/css/bootstrap-treeview.css"rel="stylesheet">
+<link href="./css/style.css"rel="stylesheet"type="text/css">
+<link rel="stylesheet"type="text/css"href="./css/menu-css.css">
 
-        <link rel="stylesheet" type="text/css" href="./css/style2.css"> 
+<link rel="stylesheet"type="text/css"href="./css/style2.css"> 
+<link rel="stylesheet"type="text/css"href="../dep/jquery-ui/jquery-ui.min.css">
 
-        <!-- Buttons 库的核心文件 -->
-        <link rel="stylesheet" href="../dep/bootstrap/css/bootstrapbtn.css">
-        <script type="text/javascript" src="../dep/jquery/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="../dep/bootstrap/js/bootstrap.min.js"></script>
-    </head>
-    <body >
-        <div ng-controller="shareController">
-        <custom-tags></custom-tags>
-        <div ng-view></div>
-        </div>
-        
-        <script type="text/javascript" src='./js/config.js'></script>
-        <script src="./js/init2.js"></script>
-        <script src="../dep/angularjs/angular.js"></script>
-        <script src="../dep/angularjs/angular-route.js"></script>
-        <script src="./js/home.js"> </script>
-        <script src="./js/firework.js"> </script>
-
+<!-- Buttons 库的核心文件 -->
+<link rel="stylesheet"href="../dep/bootstrap/css/bootstrapbtn.css">
+<script type="text/javascript"src="../dep/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript"src="../dep/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript"src="../dep/jquery-ui/jquery-ui.min.js"></script>
+</head>
+<body >
+<div ng-controller="shareController">
+<custom-tags></custom-tags>
+   <div class="main">
+    <h1>{{award}}<span class="typeflag">{{describe}}</span></h1>
+    <div class="result_box  stop"id="oknum">
+    <span id="oknum"name="oknum"value="抽奖结果"></span>
+    <div class="bigfont">抽奖结果<span class="typeflag">{{}}</span></div>
+    </div>  
+    <div class="button_box">
+    <button class="button big green"ng-click="Start(startNum)"id={{startNum}}accesskey="s">开始</button>
+    <button class="button big grey"ng-click="Ok(stopDec)"id={{stopDec}}accesskey="o">停止</button>
      
-     
-    </body>
+    </div>  
+    </div>
+</div>
+
+<script type="text/javascript"src='./js/config.js'></script>
+<script src="./js/init2.js"></script>
+<script src="../dep/angularjs/angular.js"></script>
+<script src="../dep/angularjs/angular-route.js"></script>
+<script src="./js/home.js"> </script>
+<script src="./js/firework.js"> </script>
+
+
+
+</body>
 </html>

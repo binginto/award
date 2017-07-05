@@ -19,52 +19,56 @@ var deletedata;
 var comnumber;
 
 const app = angular.module('wechatApp', ['ngRoute']);
-	app.config(function($routeProvider) {
-		$routeProvider
-			.when('/', {
-				controller: 'shareController',
-				templateUrl: 'tpl/treeView.html'
-			})
-			.when('/cash/first', {
-				controller: 'shareController',
-				templateUrl: 'view/cash/first.html',
+app.config(function($routeProvider) {
+	$routeProvider
+		.when('/', {
+			controller: 'shareController',
+			templateUrl: 'tpl/treeView.html'
+		})
+		.when('/cash/first', {
+			controller: 'shareController',
+			templateUrl: 'view/cash/first.html',
 
-			})
-			.when('/cash/second', {
-				controller: 'shareController',
-				templateUrl: 'view/cash/second.html',
+		})
+		.when('/cash/second', {
+			controller: 'shareController',
+			templateUrl: 'view/cash/second.html',
 
-			})
-			.otherwise({
-				redirectTo: '/'
-			});
+		})
+		.otherwise({
+			redirectTo: '/'
+		});
 
-	});
+});
 
-	app.directive('customTags', function() {
-		return {
-			restrict: 'ECAM',
-			templateUrl: 'view/directive/leftPanel.html',
-			replace: true
-		}
-	});
+app.directive('customTags', function() {
+	return {
+		restrict: 'ECAM',
+		templateUrl: 'view/directive/leftPanel.html',
+		replace: true
+	}
+});
 
 app.controller('shareController', function($scope, $route, $rootScope, $location) {
-   
     var awardData = getAward();
-    $scope.sendData = function(id){
-       if(awardData.has(id)){
-       	var setData = awardData.get(id);
-       	$scope.award = setData.award ;
-       	$scope.describe = setData.describe ;
-       	$scope.num  = setData.num;
-       	$scope.startNum = setData.startNum ;
-       	$scope.stopDec = setData.stopDec ;
-       }
-    }
 
+	var setData = awardData.get('cash_1');
+	$scope.award = setData.award;
+	$scope.describe = setData.describe;
+	$scope.num = setData.num;
+	$scope.startNum = setData.startNum;
+	$scope.stopDec = setData.stopDec;
 
-
+	$scope.sendData = function(id) {
+		if (awardData.has(id)) {
+			var setData = awardData.get(id);
+			$scope.award = setData.award;
+			$scope.describe = setData.describe;
+			$scope.num = setData.num;
+			$scope.startNum = setData.startNum;
+			$scope.stopDec = setData.stopDec;
+		}
+	}
 
 
 
@@ -160,46 +164,46 @@ app.controller('shareController', function($scope, $route, $rootScope, $location
 
 
 	$scope.inOk = function(state) {
-			clearInterval(timer);
-			/*烟火*/
-			fireworks().stop();
-			document.body.style.backgroundColor = "#d0d0d0";
-			/*设置可编辑*/
-			/*设置不可编辑*/
-			document.getElementById("setnum").disabled = false;
-			//以下代码表示获得奖的，不能再获奖了。  重置刷新页面即可。 
-			//以空格分割数据，清除"1、" 和换行符。
-			deletedata = document.getElementById("oknum").innerText;
+		clearInterval(timer);
+		/*烟火*/
+		fireworks().stop();
+		document.body.style.backgroundColor = "#d0d0d0";
+		/*设置可编辑*/
+		/*设置不可编辑*/
+		document.getElementById("setnum").disabled = false;
+		//以下代码表示获得奖的，不能再获奖了。  重置刷新页面即可。 
+		//以空格分割数据，清除"1、" 和换行符。
+		deletedata = document.getElementById("oknum").innerText;
 
-			var firstdel = deletedata.split(/\s+/);
-			for (var i = 0; i < firstdel.length; i++) {
-				firstdel[i] = firstdel[i].replace(/[\r\n]/g, '');
-				firstdel[i] = firstdel[i].replace(/^[0-9]+、/, '');
-			}
-
-			rewardData += state;
-			rewardData += "\n";
-			for (var i = 0; i < firstdel.length; i++) {
-				rewardData += firstdel[i];
-				rewardData += '\n';
-			}
-			rewardData += "\n";
-			rewardTestData += (firstdel + ",");
-			// console.log(rewardData);
-			for (i = 0; i < firstdel.length; i++) {
-				alldata = alldata.replace(firstdel[i], "").replace(",,", ",");
-			}
-			// 去掉前置，最末尾的,  
-			if (alldata.substr(0, 1) == ",") {
-				alldata = alldata.substr(1, alldata.length);
-			}
-			if (alldata.substr(alldata.length - 1, 1) == ",") {
-				alldata = alldata.substring(0, alldata.length - 1);
-			}
-			alldataarr = alldata.split(",");
-			num = alldataarr.length - 1;
-			console.log(num);
+		var firstdel = deletedata.split(/\s+/);
+		for (var i = 0; i < firstdel.length; i++) {
+			firstdel[i] = firstdel[i].replace(/[\r\n]/g, '');
+			firstdel[i] = firstdel[i].replace(/^[0-9]+、/, '');
 		}
+
+		rewardData += state;
+		rewardData += "\n";
+		for (var i = 0; i < firstdel.length; i++) {
+			rewardData += firstdel[i];
+			rewardData += '\n';
+		}
+		rewardData += "\n";
+		rewardTestData += (firstdel + ",");
+		// console.log(rewardData);
+		for (i = 0; i < firstdel.length; i++) {
+			alldata = alldata.replace(firstdel[i], "").replace(",,", ",");
+		}
+		// 去掉前置，最末尾的,  
+		if (alldata.substr(0, 1) == ",") {
+			alldata = alldata.substr(1, alldata.length);
+		}
+		if (alldata.substr(alldata.length - 1, 1) == ",") {
+			alldata = alldata.substring(0, alldata.length - 1);
+		}
+		alldataarr = alldata.split(",");
+		num = alldataarr.length - 1;
+		console.log(num);
+	}
 
 });
 

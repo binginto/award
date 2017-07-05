@@ -32,7 +32,6 @@ h2{
   font-size:4vmin !important;
   height:4vmin;   
   -webkit-text-stroke: 1.5px black;s/*描边的像素，也就是粗细，这里指定是2像素的黑色边框*/
-
 }
 
 .main{
@@ -129,4 +128,11 @@ div.view-container {
 
 .btncolor{
   background-color: #BEBEBE !important;
+}
+
+
+#oknum1{
+  width: 100px;
+  height:100px;
+  background-color: red;
 }
