@@ -25,9 +25,9 @@ app.config(function($routeProvider) {
 			controller: 'shareController',
 			templateUrl: 'tpl/treeView.html'
 		})
-		.when('/cash/first', {
+		.when('/add/add', {
 			controller: 'shareController',
-			templateUrl: 'view/cash/first.html',
+			templateUrl: 'tpl/add.html',
 
 		})
 		.when('/cash/second', {
@@ -49,15 +49,19 @@ app.directive('customTags', function() {
 	}
 });
 
+
 app.controller('shareController', function($scope, $route, $rootScope, $location) {
+    
     var awardData = getAward();
 
-	var setData = awardData.get('cash_1');
+    $scope.load = function(){
+    var setData = awardData.get('cash_1');
 	$scope.award = setData.award;
 	$scope.describe = setData.describe;
 	$scope.num = setData.num;
 	$scope.startNum = setData.startNum;
 	$scope.stopDec = setData.stopDec;
+    }
 
 	$scope.sendData = function(id) {
 		if (awardData.has(id)) {
