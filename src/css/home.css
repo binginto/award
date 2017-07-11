@@ -53,6 +53,8 @@ h2{
   float: left;
 }
 
+
+
 div.view-container {
   position: relative;
   width: 100%;
@@ -64,8 +66,8 @@ div.view-container {
   div.view-container.fullscreen {
     height: 100vh; }
 
-
-.result_box {margin:0 10vw;width:100%;height:70vh;text-align:center;border:3px solid #d0d0d0;background:#efe; overflow: scroll;}  
+.result_box {margin:0 10vw;width:100%;height:70vh;border:3px solid #d0d0d0;background:#efe; overflow: scroll;}  
+.result_box2 {margin:0 10vw;width:100%;height:90vh;border:3px solid #d0d0d0;background:#efe; overflow: scroll;} 
  #oknum {font-size:4vmin;font-family:KaiTi;text-align:left;background:#efe; line-height:5vmin; padding-left: 15vw ; }  
 .button_box {margin:5vh 0 0 28vw;}  
 
@@ -82,8 +84,8 @@ div.view-container {
 
 .bigfont{
   font-size: 8vmin;
-  margin-top: 20vh;
-  padding-left: 3vw ;
+  margin-top: 30vh;
+  padding-left: 5vw ;
   color:#cc0000;;
 }
 

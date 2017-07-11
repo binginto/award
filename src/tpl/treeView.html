@@ -4,15 +4,14 @@
     <h1>{{award}}<span class="typeflag">{{describe}}</span></h1>
     </div>
     <div class="result_box  stop" id="oknum">
-    <span id="oknum" name="oknum" value="抽奖结果"></span>
-    <div class="bigfont">抽奖结果<span class="typeflag">{{num}}</span></div>
+    <div class="bigfont" id="result">抽奖结果<span class="typeflag">{{num}}</span></div>
     </div>  
     <div class="button_box">
     <button class="button big green" ng-click="Start(startNum)" id={{startNum}} accesskey="s">开始</button>
-    <button class="button big grey" ng-click="Ok(stopDec)" id={{stopDec}} accesskey="o">停止</button>
+    <button class="button big grey" ng-click="Ok()" id={{stopDes}} accesskey="o">停止</button>
     </div>  
-    <div style="background-color: #bbb; width:80vw; ">
-    <p align="center" style="margin-top: 20px;border-top:solid #bbb 3px ; color:#878B91;">
+    <div style="background-color: #bbb; width:80vw;height:3vh; position:absolute; bottom:0;">
+    <p align="center" style="border-top:solid #bbb 3px ; color:#878B91; ">
             Copyright &copy;2017 @Binginto
         </p>
     </div>

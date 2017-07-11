@@ -1,69 +1,31 @@
 /*天彩研发中心员工数据*/
 
 var alldata = '';
-var workerdata = '';
 alldata = getdata();
-console.log(alldata);
-
+var num = alldata.length - 1 ;
 
 /*中奖名单*/
 var rewardData = '';
 var rewardTestData = '';
-
-
-var alldataarr = alldata.split(",");
-console.log(alldataarr.length);
-var num = alldataarr.length - 1;
-var timer;
+var timer
 var deletedata;
 var comnumber;
 
-const app = angular.module('wechatApp', ['ngRoute']);
-app.config(function($routeProvider) {
-	$routeProvider
-		.when('/', {
-			controller: 'shareController',
-			templateUrl: 'tpl/treeView.html'
-		})
-		.when('/add/add', {
-			controller: 'shareController',
-			templateUrl: 'tpl/add.html',
-
-		})
-		.when('/cash/second', {
-			controller: 'shareController',
-			templateUrl: 'view/cash/second.html',
-
-		})
-		.otherwise({
-			redirectTo: '/'
-		});
-
-});
-
-app.directive('customTags', function() {
-	return {
-		restrict: 'ECAM',
-		templateUrl: 'view/directive/leftPanel.html',
-		replace: true
-	}
-});
-
-
 app.controller('shareController', function($scope, $route, $rootScope, $location) {
-    
-    var awardData = getAward();
 
-    $scope.load = function(){
-    var setData = awardData.get('cash_1');
-	$scope.award = setData.award;
-	$scope.describe = setData.describe;
-	$scope.num = setData.num;
-	$scope.startNum = setData.startNum;
-	$scope.stopDec = setData.stopDec;
-    }
+	var awardData = getAward();
+
+	$scope.load = function() {
+		var setData = awardData.get('cash_1');
+		$scope.award = setData.award;
+		$scope.describe = setData.describe;
+		$scope.num = setData.num;
+		$scope.startNum = setData.startNum;
+		$scope.stopDec = setData.stopDec;
+	}
 
 	$scope.sendData = function(id) {
+		$location.path("/")
 		if (awardData.has(id)) {
 			var setData = awardData.get(id);
 			$scope.award = setData.award;
@@ -74,6 +36,10 @@ app.controller('shareController', function($scope, $route, $rootScope, $location
 		}
 	}
 
+	$scope.changeView = function (path) {
+        $location.path("/path")
+    }
+
 
 
 	/*CASH*/
@@ -82,87 +48,56 @@ app.controller('shareController', function($scope, $route, $rootScope, $location
 		/*烟火*/
 		document.body.style.backgroundColor = "#272727";
 		fireworks().init();
-
 		clearInterval(timer);
-		timer = setInterval('change(comnumber)', 5); //随机数据变换速度，越小变换的越快
-		console.log(innumber);
-
+		$location.path("/show/action");
+        timer = setInterval('change(comnumber)',10);
 	}
 
-	$scope.Ok = function(state) {
+	$scope.Ok = function() {
 		clearInterval(timer);
 		/*烟火*/
 		fireworks().stop();
 		document.body.style.backgroundColor = "#d0d0d0";
-		//以下代码表示获得奖的，不能再获奖了。  重置刷新页面即可。 
-		//以空格分割数据，清除"1、" 和换行符。
-		deletedata = document.getElementById("oknum").innerText;
-
-		var firstdel = deletedata.split(/\s+/);
-		for (var i = 0; i < firstdel.length; i++) {
-			firstdel[i] = firstdel[i].replace(/[\r\n]/g, '');
-			firstdel[i] = firstdel[i].replace(/^[0-9]+、/, '');
-		}
-
-		/*rewardData显示格式*/
-		rewardData += state;
-		rewardData += "\n";
-		for (var i = 0; i < firstdel.length; i++) {
-			rewardData += firstdel[i];
-			rewardData += '\n';
-		}
-		rewardData += "\n";
-		rewardTestData += (firstdel + ",");
-		//  console.log(rewardData);
-
-		for (i = 0; i < firstdel.length; i++) {
-			alldata = alldata.replace(firstdel[i], "").replace(",,", ",");
-		}
-		// 去掉前置，最末尾的,  
-		if (alldata.substr(0, 1) == ",") {
-			alldata = alldata.substr(1, alldata.length);
-		}
-		if (alldata.substr(alldata.length - 1, 1) == ",") {
-			alldata = alldata.substring(0, alldata.length - 1);
-		}
-		alldataarr = alldata.split(",");
-		num = alldataarr.length - 1;
-		console.log(num);
-
-	}
-
-
-
-	$scope.save = function() {
-		localStorage.setItem("rewardData", rewardData);
-		document.getElementById("add_save").style.cssText = "visibility:hidden;";
-		console.log(rewardData);
-		//  document.write(rewardTestData);
+		//删除已经获奖的员工
+		globalDel.sort(sortNumber);
+        for(var i = 0 ,j=0; i < globalDel.length; i++,j++){
+        	alldata.splice((globalDel[i]-j),1);	
+        }
+        //记录获奖的员工
+        var obj = new Object();  
+        obj.award = $scope.award;
+        obj.describe = $scope.describe ;
+        obj.data = globalDel ;
+        globalSave.push(obj);
+        save();
 	}
 
 
 	$scope.show = function() {
-		document.getElementById("oknum").innerText = localStorage.getItem("rewardData");
-		document.getElementById("title").innerText = "中奖名单";
-		document.getElementById("oknum").setAttribute("class", "result_box  long");
-		// console.log(rewardData);
+		$location.path("/show/awardTable");
+		showView();
+
+	}
+
+	$scope.delete = function() {
+		localStorage.clear();
 	}
 
 
 
-	$scope.inStart = function() {
+	$scope.addComfirm = function() {
 		var term = verifyFormat();
 		if (!term) {
 			alert("输入格式不正确");
 		} else {
-			comnumber = term;
 			/*烟火*/
-			document.body.style.backgroundColor = "#272727";
-			fireworks().init();
-			/*设置不可编辑*/
-			document.getElementById("setnum").disabled = true;
-			clearInterval(timer);
-			timer = setInterval('change(comnumber)', 5); //随机数据变换速度，越小变换的越快
+			var html = '<div class="bigfont" id="result">抽奖结果<span class="typeflag">(' + term.num + ')</span></div>';
+			$('#oknum').html(html);
+			$scope.award = term.award;
+			$scope.describe = '(' + term.describe + ')';
+			$scope.startNum = term.num;
+			$scope.stopDes = term.award;
+
 		}
 	}
 
@@ -193,7 +128,6 @@ app.controller('shareController', function($scope, $route, $rootScope, $location
 		}
 		rewardData += "\n";
 		rewardTestData += (firstdel + ",");
-		// console.log(rewardData);
 		for (i = 0; i < firstdel.length; i++) {
 			alldata = alldata.replace(firstdel[i], "").replace(",,", ",");
 		}
@@ -208,127 +142,6 @@ app.controller('shareController', function($scope, $route, $rootScope, $location
 		num = alldataarr.length - 1;
 		console.log(num);
 	}
-
 });
 
 
-
-function change(innumber) {
-	// document.getElementById("oknum").value = alldataarr[GetRnd(0,num)]; 
-	// console.log(innumber);
-	var term = GetRnd(0, num, innumber);
-	var data = "";
-	if (!(term instanceof Array)) {
-		//console.log(term instanceof Array);
-		document.getElementById("oknum").innerText = "ERROR!";
-		document.getElementById("oknum").setAttribute("class", "result_box bigfont_ok");
-	}
-	// console.log("binginto"+term);
-	else {
-		for (i = 0; i < term.length - 1; i++) {
-			term[i] = parseInt(term[i]);
-			data += (i + 1) + "、" + alldataarr[term[i]] + " " + "\n";
-
-		}
-		term[term.length - 1] = parseInt(term[term.length - 1]);
-		data += (term.length) + "、" + alldataarr[term[term.length - 1]] + " ";
-
-		if (term.length < 4 || term.length == 4) {
-			document.getElementById("oknum").innerText = data;
-			document.getElementById("oknum").setAttribute("class", "result_box changestyle_ok1");
-
-
-		} else if (term.length < 8 && term.length > 4) {
-			document.getElementById("oknum").innerText = data;
-			document.getElementById("oknum").setAttribute("class", "result_box changestyle_ok2");
-
-		} else {
-			//console.log(data);
-			document.getElementById("oknum").innerText = data;
-			document.getElementById("oknum").setAttribute("class", "result_box");
-		}
-	}
-}
-
-function GetRnd(min, max, innumber) {
-
-	if (num == innumber - 1) {
-		console.log(alldata);
-		if (alldata.length < 0 || alldata.length == 0) {
-			//  console.log(num);
-			alert("数据量少于要中奖人数，不能进行");
-			clearInterval(timer);
-			return false;
-		}
-	}
-	if (num < (innumber - 1)) {
-
-		//console.log(num);
-		alert("数据量少于要中奖人数，不能进行");
-		clearInterval(timer);
-		return false;
-	} else {
-		var arr = [];
-		while (arr.length < innumber) {
-			var bFlag = true;
-			var number = Math.floor(Math.random() * (max - min + 1));
-			if (arr.length == 0) {
-				arr.push(number);
-			}
-			for (var i = 0; i < arr.length; i++) {
-				if (number == arr[i]) {
-					bFlag = false;
-				}
-			}
-			if (bFlag) {
-				arr.push(number);
-			}
-		}
-		return arr;
-	}
-}
-
-
-function verifyFormat() {
-	var setnum = $('#setnum').val();
-	if (setnum == "") {
-		alert("输入不能为空");
-		return false;
-	} else if (!setnum.match(/^[0-9]+$/)) {
-		alert("只能输入数字");
-		return false;
-	} else if (!isNaN(setnum)) {
-		var num = parseInt(setnum);
-		if (num > 0 && num < 100) {
-			return num;
-		} else {
-			alert("请输入0到100的数字");
-			return false;
-		}
-
-	} else {
-		return false;
-	}
-}
-
-function getdata() {
-	$.ajax({
-		//请求方式为get  
-		type: "GET",
-		//json文件位置  
-		url: "./data/worker.json",
-		//返回数据格式为json  
-		dataType: "json",
-		async: false,
-		//请求成功完成后要执行的方法  
-		success: function(data) {
-			//使用$.each方法遍历返回的数据date,插入到id为#result中  
-
-			for (var i = 0; i < data.workers.length - 1; i++) {
-				workerdata += data.workers[i].id + data.workers[i].name + ",";
-			}
-			workerdata += data.workers[data.workers.length - 1].id + data.workers[data.workers.length - 1].name;
-		}
-	})
-	return workerdata;
-}
