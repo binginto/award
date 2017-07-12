@@ -1,26 +1,4 @@
-﻿/*规范页面*/
-html,body {
-  padding-bottom: 40px;
-  color: #5a5a5a ;
-  margin: 0px;
-  padding: 0px;
- /* background-color: #FFFCEC ; */
- background-color: #d0d0d0;
-  height:100%;
-  overflow: auto;
-}
-
-body,div, form, img, ul, ol, li, dl, dt, dd, form, p {
-    margin: 0px;
-    padding: 0px;
-    border: 0px none;
-    list-style: none outside none; 
-    text-decoration:none;
-}
-
-a {
- color:#D3D3D3; /*color: #ddd; */
- height: 100%;
- text-decoration: none;
-}
-
+/*规范页面*/
+html,body{padding-bottom:40px;color:#5a5a5a;margin:0px;padding:0px;background-color:#d0d0d0;height:100%;overflow:auto;}
+body,div,form,img,ul,ol,li,dl,dt,dd,form,p{margin:0px;padding:0px;border:0px none;list-style:none outside none;text-decoration:none;}
+a{color:#D3D3D3;height:100%;text-decoration:none!important;}

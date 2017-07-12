@@ -1,6 +1,6 @@
 var workerMsg;
 var alldata = getdata();
-var saveData = alldata;
+var saveData = getdata();
 console.log(alldata);
 var depart = 'skylight';
 var globalDel = new Array();
@@ -51,14 +51,14 @@ function changeDom() {
  * @description 随机产生中奖名单
  */
 function getRan(min, max, innumber) {
-	if (num == (innumber - 1)) {
+	if (innumber == (max + 1)) {
 		if (alldata.length < 0 || alldata.length == 0) {
 			alert("数据量为负数，不能进行");
 			clearInterval(timer);
 			return false;
 		}
 	}
-	if (num < (innumber - 1)) {
+	if (innumber > (max + 1)) {
 		alert("数据量少于要中奖人数，不能进行");
 		clearInterval(timer);
 		return false;
@@ -126,18 +126,17 @@ function sortNumber(a, b) {
 
 function showView() {
 	var localSave = localStorage.globalSave;
-	console.log(localSave);
 	var useData = $.parseJSON(localSave);
 	var item = '';
 	for (var i = 0; i < useData.length; i++) {
-		item += '<thead><tr><th>'+useData[i].award+useData[i].describe
-		+ '</th> </tr> </thead>';
-		for(var j = 0 ; j < useData[i].data.length;j++){
+		item += '<thead><tr><th>' + useData[i].award + useData[i].describe + '</th> </tr> </thead><tbody>';
+		for (var j = 0; j < useData[i].data.length; j++) {
 			var msg = useData[i].data[j];
-			item += '<tbody><tr><td>'+saveData[msg].id+'</td><td>'+saveData[msg].name+'</td></tr></tbody>' ;
+			item += '<tr><td>' + saveData[msg].id + '</td><td>' + saveData[msg].name + '</td></tr>';
 		}
+		item+='</tbody>';
 	}
 	console.log(item);
 	$("#summy").empty();
-	$("#summy").append(item);	
+	$("#summy").append(item);
 }

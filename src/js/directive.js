@@ -11,15 +11,24 @@ app.directive('customTags', function() {
 app.directive('addTags', function() {
 	return {
 		restrict: 'ECAM',
-		templateUrl: 'view/directive/add.html',
+		templateUrl: 'view/directive/addTag.html',
 		replace: true
 	}
 });
 
-app.directive('awardTags', function() {
+
+app.directive('btnTags', function() {
 	return {
 		restrict: 'ECAM',
-		templateUrl: 'view/directive/dataTable.html',
+		templateUrl: 'view/directive/btnTag.html',
+		replace: true
+	}
+});
+
+app.directive('footerTag', function() {
+	return {
+		restrict: 'ECAM',
+		templateUrl: 'view/directive/footTag.html',
 		replace: true
 	}
 });

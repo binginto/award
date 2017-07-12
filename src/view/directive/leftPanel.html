@@ -2,89 +2,91 @@
 <div class="leftTop">
 <h2>skylight</h2>
 </div>
-<div class="panel-group"id="accordion">
+
+<div class="panel-group leftPanel "id="accordion">
 <div class="panel panel-default ">
-<div class="panel-heading">
-<h4 class="panel-title">
-<a data-toggle="collapse"data-parent="#accordion"href="#collapseOne">
+<a  data-toggle="collapse"data-parent="#accordion"href="#collapseOne">
+<div class="panel-heading ">
+<h3 class="panel-title ">
 <button type="button"class="btn btn-default"aria-label="Left Align">
 <span class="glyphicon glyphicon-align-left"aria-hidden="true"></span>
 </button>
-cash
+<span class ="leftTitle">cash(现金奖)<span>
+</h3>
+</div>
 </a>
-</h4>
-</div>
 <div id="collapseOne"class="panel-collapse collapse ">
-<div id ='cash_1'class="panel-body"ng-click="sendData('cash_1')">
-first
+<div id ='cash_1' class="panel-body leftItem" ng-click="sendData('cash_1')">
+一等奖
 </div>
-<div id ='cash_2'class="panel-body"ng-click="sendData('cash_2')">
+
+<div id ='cash_2'class="panel-body leftItem"ng-click="sendData('cash_2')">
 sencond
 </div>
-<div id ='cash_3'class="panel-body"ng-click="sendData('cash_3')">
+<div id ='cash_3'class="panel-body leftItem"ng-click="sendData('cash_3')">
 three
 </div>
 </div>
 </div>
 
 <div class="panel panel-default">
+<a data-toggle="collapse"data-parent="#accordion"href="#collapseGood">
 <div class="panel-heading">
 <h4 class="panel-title">
-<a data-toggle="collapse"data-parent="#accordion"href="#collapseGood">
 <button type="button"class="btn btn-default"aria-label="Left Align">
 <span class="glyphicon glyphicon-align-left"aria-hidden="true"></span>
 </button>
-good
-</a>
+<span class ="leftTitle">good(物品奖)<span>
 </h4>
 </div>
+</a>
 <div id="collapseGood"class="panel-collapse collapse ">
-<div id ='good_1'class="panel-body"ng-click="sendData('good_1')">
+<div id ='good_1'class="panel-body leftItem"ng-click="sendData('good_1')">
 first
 </div>
-<div id ='good_2'class="panel-body"ng-click="sendData('good_2')">
+<div id ='good_2'class="panel-body leftItem"ng-click="sendData('good_2')">
 sencond
 </div>
-<div id ='good_3'class="panel-body"ng-click="sendData('good_3')">
+<div id ='good_3'class="panel-body leftItem"ng-click="sendData('good_3')">
 three
 </div>
 </div>
 </div>
 
 <div class="panel panel-default ">
+<a data-toggle="collapse"data-parent="#accordion"href="#collapseDowork">
 <div class="panel-heading">
 <h4 class="panel-title">
-<a data-toggle="collapse"data-parent="#accordion"href="#collapseDowork">
 <button type="button"class="btn btn-default"aria-label="Left Align">
 <span class="glyphicon glyphicon-align-left"aria-hidden="true"></span>
 </button>
-doWork
-</a>
+<span class ="leftTitle">补充奖项<span>
 </h4>
 </div>
+</a>
 <div id="collapseDowork"class="panel-collapse collapse ">
-<div id ='doWork_1'class="panel-body">
-	<add-tags></add-tags>
+<div id ='doWork_1'class="panel-body itemBorder">
+<add-tags></add-tags>
 </div>
 </div>
 </div>
 
 <div class="panel panel-default ">
+<a data-toggle="collapse"data-parent="#accordion"href="#collapseName">
 <div class="panel-heading">
 <h4 class="panel-title">
-<a data-toggle="collapse"data-parent="#accordion"href="#collapseName">
 <button type="button"class="btn btn-default"aria-label="Left Align">
 <span class="glyphicon glyphicon-align-left"aria-hidden="true"></span>
 </button>
-name
-</a>
+<span class ="leftTitle">中奖名单<span>
 </h4>
 </div>
+</a>
 <div id="collapseName"class="panel-collapse collapse ">
-<div class="panel-body" id ='name_1' ng-click='show()'>
+<div class="panel-body leftItem"id ='name_1'ng-click='show()'>
 show
 </div>
-<div class="panel-body"id ='name_1'ng-click='delete()'>
+<div class="panel-body leftItem" id ='name_1'ng-click='delete()'>
 first2
 </div>
 </div>

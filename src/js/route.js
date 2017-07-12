@@ -3,11 +3,11 @@ app.config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
 			controller: 'shareController',
-			templateUrl: 'tpl/treeView.html'
+			templateUrl: 'tpl/main.html'
 		})
-		.when('/show/awardTable', {
+		.when('/show/showData', {
 			controller: 'shareController',
-			templateUrl: 'tpl/awardTable.html',
+			templateUrl: 'tpl/showData.html',
 
 		})
 		.when('/show/action', {

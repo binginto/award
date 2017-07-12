@@ -50,3 +50,7 @@ for(var i = 0; i < dataArr.length;i++){
 function getAward(){
 	return awardData ;
 }
+
+function getInit(){
+	return dataArr[0];
+}
