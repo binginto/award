@@ -1,0 +1,42 @@
+<div class="panel panel-default ">
+<a data-toggle="collapse"data-parent="#accordion"href="#collapseName">
+<div class="panel-heading">
+<h4 class="panel-title">
+<button type="button"class="btn btn-default  itemfont"aria-label="Left Align">
+<span class="glyphicon glyphicon-align-left "aria-hidden="true"></span>
+</button>
+<span class ="leftTitle">中奖名单<span>
+</h4>
+</div>
+</a>
+<div id="collapseName"class="panel-collapse collapse ">
+<div class="panel-body leftItem"id ='name_1'ng-click='show()'>
+show
+</div>
+<div class="panel-body leftItem"data-toggle="modal"data-target="#myModal" id ='name_1'>
+delete
+</div>
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade"id="myModal"tabindex="-1"role="dialog"aria-labelledby="myModalLabel"aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button"class="close"data-dismiss="modal"aria-hidden="true">
+&times;
+</button>
+<h4 class="modal-title"id="myModalLabel">
+你确定要清空中奖名单？
+</h4>
+</div>
+<div class="modal-footer">
+<button type="button"class="btn btn-default"data-dismiss="modal">关闭
+</button>
+<button type="button"class="btn btn-primary"data-dismiss="modal" ng-click='delete()'>
+确定
+</button>
+</div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal -->
+</div>
+</div>

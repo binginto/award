@@ -14,11 +14,53 @@
 <script type="text/javascript"src="../dep/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body >
-<div>
-<div ng-controller="shareController">
-<custom-tags></custom-tags>
+<div ng-controller="shareController" >
+<div class="left">
+<div class="leftTop">
+<h2>skylight</h2>
+</div>
+<div class="panel-group leftPanel "id="accordion">
+<div class="panel panel-default ">
+<a  data-toggle="collapse"data-parent="#accordion"href="#collapseCash">
+<div class="panel-heading ">
+<h3 class="panel-title ">
+<button type="button"class="btn btn-default itemfont"aria-label="Left Align" >
+<span class="glyphicon glyphicon-align-left"aria-hidden="true"></span>
+</button>
+<span class ="leftTitle">cash(现金奖)<span>
+</h3>
+</div>
+</a>
+<div id="collapseCash"class="panel-collapse collapse ">
+
+</div>
+</div>
+
+<div class="panel panel-default">
+<a data-toggle="collapse"data-parent="#accordion"href="#collapseGood">
+<div class="panel-heading">
+<h4 class="panel-title">
+<button type="button"class="btn btn-default itemfont"aria-label="Left Align">
+<span class="glyphicon glyphicon-align-left"aria-hidden="true"></span>
+</button>
+<span class ="leftTitle">good(物品奖)<span>
+</h4>
+</div>
+</a>
+<div id="collapseGood"class="panel-collapse collapse ">
+
+</div>
+</div>
+	<additional-tag></additional-tag>
+	<list-tag></list-tag>
+<!--panel-group-->
+</div>
+</div>
+
 <div>
    <div ng-view  data-ng-init="load()"></div>
+</div>
+ <footer-tag></footer-tag>
 </div>
 
 <script type="text/javascript"src='./js/config.js'></script>

@@ -1,28 +1,31 @@
 ﻿/**leftPanel*/
-.left{width:20vw;height:100vh;border-right:solid #ADADAD 2px;visible:visible;float:left;}
+.left{width:20vw;height:96.5vh;border-right:solid #ADADAD 1px;visible:visible;float:left;}
 .leftTop{height:8vh;width:20vw;border-bottom:1px solid #bbb;}
 .topTitle{height:8vh;width:80vw;margin:0 auto;border-bottom:1px solid #bbb;}
 .leftPanel{width:90%;margin:0 auto;}
-.leftTitle{font-size:1.3em;text-align:center;color:black!important;}
+.leftTitle{font-size:1.3rem;text-align:center;color:black!important;}
 .panel-heading:active{background-color:#FDD017!important;}
-.leftItem{font-size:1.6em;height:6vh;padding-left:4vw!important;padding-top:1vh!important;border-top:1px solid #d0d0d0;}
+.leftItem{font-size:1.6rem;height:6vh;padding-left:4vw!important;padding-top:1vh!important;border-top:1px solid #d0d0d0;}
 .leftItem:active{background-color:yellow;}
 .itemBorder{border-top:1px solid #d0d0d0;}
+.itemfont{font-size:1.0rem!important;}
 
 /**mainPanel*/
-h1{font-size:5vmin;font-family:"Microsoft YaHei","黑体","宋体";text-align:center;-webkit-text-stroke:1.5px black;/*描边的像素，也就是粗细，这里指定是2像素的黑色边框*/}
-h2{margin-left:5%;font-family:"Microsoft YaHei","黑体","宋体";font-size:4vmin!important;height:4vmin;-webkit-text-stroke:1.5px black;}
+h1{font-size:3rem!important;font-family:"Microsoft YaHei","黑体","宋体";text-align:center;-webkit-text-stroke:1.5px black;/*描边的像素，也就是粗细，这里指定是2像素的黑色边框*/}
+h2{margin-left:5%;font-family:"Microsoft YaHei","黑体","宋体";font-size:2.5rem!important;height:3vmin;-webkit-text-stroke:1.5px black;}
 .main{width:60vw;height:100%;float:left;}
-.result_box{margin:0 10vw;width:100%;height:70vh;border:1px solid #d0d0d0;background:#eee;overflow:scroll;}
-.result_boxB{margin:0 10vw;width:100%;height:90vh;border:1px solid #d0d0d0;background:#eee;overflow:scroll;}
- #oknum{font-size:4vmin;font-family:KaiTi;text-align:left;background:#efe;line-height:5vmin;padding-left:15vw;}
+.result_box{margin:0 9vw;width:100%;height:70vh;border:1px solid #d0d0d0;background:#eee;overflow:scroll;}
+.result_boxB{margin:0 10vw;width:100%;height:85vh;border:1px solid #d0d0d0;background:#eee;overflow:scroll;}
+ #oknum{font-size:3rem;font-family:KaiTi;text-align:left;background:#efe;line-height:5vmin;padding-left:15vw;}
 .button_box{margin:5vh 0 0 28vw;}
-.buttonT{width:10vw;}
+.buttonT{width:15vw;font-size:1.8rem!important;}
 .btn-size{width:50%!important;height:8vh!important;padding-left:18vw;margin:2vh auto!important;}
-.bigfont{font-size:8vmin;margin-top:30vh;padding-left:5vw;color:#cc0000;}
-.typeflag{font-size:18px!important;display:inline-block;}
+.bigfont{font-size:5rem;margin-top:30vh;padding-left:5vw;color:#cc0000;}
+.typeflag{font-size:1.5rem!important;display:inline-block;}
+.fontflag{font-size:2rem!important;color:red;text-align:center;}
 
 /**firework && footer*/
-.fire{display:block;overflow:hidden;font-size:100px;position:absolute}
-#footer{background-color:#bbb;width:80vw;height:3.5vh;position:absolute;bottom:0;}
+.fire{display:block;overflow:hidden;font-size:5em;position:absolute}
+#footer{background-color:#bbb;width:100%;height:3.5vh;position:absolute;bottom:0;}
 #footer p{border-top:solid #bbb 3px;color:#878B91;text-align:center;}
+

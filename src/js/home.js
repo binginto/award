@@ -1,19 +1,16 @@
 var rewardData = '';
-var rewardTestData = '';
 var timer
 var deletedata;
 var comnumber;
 
 app.controller('shareController', function($scope, $route, $rootScope, $location) {
 	var awardData = getAward();
-
 	$scope.load = function() {
 		var setData = getInit();
-		$scope.award = setData.award;
-		$scope.describe = setData.describe;
-		$scope.num = setData.num;
-		$scope.startNum = setData.startNum;
-		$scope.stopDec = setData.stopDec;
+		$scope.award = setData[0].award;
+		$scope.describe = setData[0].describe;
+		$scope.num = setData[0].num;
+		$scope.startNum = setData[0].startNum;
 	}
 
 	$scope.sendData = function(id) {
@@ -64,11 +61,18 @@ app.controller('shareController', function($scope, $route, $rootScope, $location
 
 	$scope.show = function() {
 		$location.path("/show/showData");
-		showView();
+		setTimeout(function() {
+			showView();
+		}, 100);
 	}
 
 	$scope.delete = function() {
 		localStorage.clear();
+		console.log(localStorage.globalSave);
+		$location.path("/show/showData");
+		setTimeout(function() {
+			showView();
+		}, 100);
 	}
 
 	$scope.addComfirm = function() {
@@ -83,7 +87,6 @@ app.controller('shareController', function($scope, $route, $rootScope, $location
 			$scope.describe = '(' + term.describe + ')';
 			$scope.startNum = term.num;
 			$scope.stopDes = term.award;
-
 		}
 	}
 });

@@ -2,3 +2,19 @@
 html,body{padding-bottom:40px;color:#5a5a5a;margin:0px;padding:0px;background-color:#d0d0d0;height:100%;overflow:auto;}
 body,div,form,img,ul,ol,li,dl,dt,dd,form,p{margin:0px;padding:0px;border:0px none;list-style:none outside none;text-decoration:none;}
 a{color:#D3D3D3;height:100%;text-decoration:none!important;}
+
+@media screen and (max-width: 1980px) { 
+ html,body{font-size:12px!important;  }
+}
+@media screen and (max-width: 1380px) { 
+ html,body{font-size:10px!important;  }
+}
+@media screen and (max-width:980px) { 
+ html{font-size:6px!important;}
+}
+@media screen and (max-width: 480px) { 
+ html{font-size:3px!important;}
+}
+@media screen and (max-width: 320px) { 
+ html{font-size:2px!important;}
+}

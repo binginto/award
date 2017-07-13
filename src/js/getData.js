@@ -6,6 +6,27 @@ var depart = 'skylight';
 var globalDel = new Array();
 var globalSave = new Array();
 
+
+(function() {
+	var setData = getInit();
+	var itemCash = '';
+	var itemGood = '';
+	for (var i = 0; i < setData.length; i++) {
+		if (setData[i].type == 'cash') {
+			itemCash += "<div id =\'" + setData[i].name + "\'class=\"panel-body leftItem\" ng-click=\"sendData(\'"+setData[i].name+"\')\">" + setData[i].award + "</div>";
+		} else if (setData[i].type == 'good') {
+			itemGood += "<div id =\'" + setData[i].name + "\'class=\"panel-body leftItem\" ng-click=\"sendData(\'"+setData[i].name+"\')\">" + setData[i].award + "</div>";
+		} else {
+			console.log("UNFORMAT TYPE");
+		}
+	}
+		$("#collapseCash").append(itemCash);
+		$("#collapseGood").append(itemGood);
+	
+}());
+
+
+
 function getdata() {
 	$.ajax({
 		type: "GET",
@@ -123,9 +144,14 @@ function sortNumber(a, b) {
 	return a - b;
 }
 
+function sortObj(arg) {
+
+}
+
 
 function showView() {
 	var localSave = localStorage.globalSave;
+	if(localSave){
 	var useData = $.parseJSON(localSave);
 	var item = '';
 	for (var i = 0; i < useData.length; i++) {
@@ -134,9 +160,12 @@ function showView() {
 			var msg = useData[i].data[j];
 			item += '<tr><td>' + saveData[msg].id + '</td><td>' + saveData[msg].name + '</td></tr>';
 		}
-		item+='</tbody>';
+		item += '</tbody>';
 	}
-	console.log(item);
 	$("#summy").empty();
 	$("#summy").append(item);
+  }else{
+  	$("#summy").empty();
+  	$("#summy").append("<div class=\"fontflag\" >中奖名单为空,请先抽奖</div>");
+  }
 }

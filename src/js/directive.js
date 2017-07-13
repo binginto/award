@@ -1,8 +1,16 @@
 
-app.directive('customTags', function() {
+app.directive('additionalTag', function() {
 	return {
 		restrict: 'ECAM',
-		templateUrl: 'view/directive/leftPanel.html',
+		templateUrl: 'view/directive/additionalPanel.html',
+		replace: true
+	}
+});
+
+app.directive('listTag', function() {
+	return {
+		restrict: 'ECAM',
+		templateUrl: 'view/directive/listPanel.html',
 		replace: true
 	}
 });
