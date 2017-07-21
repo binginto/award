@@ -14,7 +14,7 @@ app.controller('shareController', function($scope, $route, $rootScope, $location
 	}
 
 	$scope.sendData = function(id) {
-		$location.path("/")
+		$location.path("/");
 		if (awardData.has(id)) {
 			var setData = awardData.get(id);
 			$scope.award = setData.award;
@@ -26,7 +26,7 @@ app.controller('shareController', function($scope, $route, $rootScope, $location
 	}
 
 	$scope.changeView = function(path) {
-		$location.path("/path")
+		$location.path("/path");
 	}
 
 
