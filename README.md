@@ -44,7 +44,8 @@ http://otfpsk942.bkt.clouddn.com/award_left.png "左侧页面")
 
 
 ## 放置部署
-  该项目为简单的前端项目，无后台。但由于涉及读取json文件数据，所以需要放置在服务器下，可放置在常见的wamp 或tomcat服务器环境下运行。以wamp为例，项目代码放置在wamp根目录中，打开http://localhost/award/src/home.html#/  即可。
+  该项目为简单的前端项目，无后台。但由于涉及读取json文件数据，所以需要放置在服务器下，可放置在常见的wamp 或tomcat服务器环境下运行。以wamp为例，项目代码放置在wamp根目录中，打开http://localhost/award/src/home.html#/  即可。thanks.
+
   
   
  
